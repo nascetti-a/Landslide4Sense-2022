@@ -60,7 +60,7 @@ class OutConv(nn.Module):
         return self.conv(x)
 
 class unet(nn.Module):
-    def __init__(self, n_classes, n_channels=14, bilinear=True):
+    def __init__(self, n_classes, n_channels=11, bilinear=True):
         super(unet, self).__init__()
         self.n_channels = n_channels
         self.n_classes = n_classes

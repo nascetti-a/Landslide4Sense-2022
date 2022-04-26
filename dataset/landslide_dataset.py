@@ -51,7 +51,7 @@ class LandslideDataSet(data.Dataset):
                 
             image = np.asarray(image, np.float32)
             label = np.asarray(label, np.float32)
-            image = image.transpose((-1, 0, 1))
+            image = image.transpose((-1, 0, 1))[[1,2,3,4,5,6,7,10,11,12,13],:,:]
             size = image.shape
 
             for i in range(len(self.mean)):
@@ -66,7 +66,7 @@ class LandslideDataSet(data.Dataset):
             name = datafiles['name']
                 
             image = np.asarray(image, np.float32)
-            image = image.transpose((-1, 0, 1))
+            image = image.transpose((-1, 0, 1))[[1,2,3,4,5,6,7,10,11,12,13],:,:]
             size = image.shape
 
             for i in range(len(self.mean)):
