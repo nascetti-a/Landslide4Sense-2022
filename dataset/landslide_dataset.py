@@ -7,8 +7,8 @@ import h5py
 class LandslideDataSet(data.Dataset):
     def __init__(self, data_dir, list_path, max_iters=None,set='label'):
         self.list_path = list_path
-        self.mean = [-0.4914, -0.3074, -0.1277, -0.0625, 0.0439, 0.0803, 0.0644, 0.0802, 0.3000, 0.4082, 0.0823, 0.0516, 0.3338, 0.7819]
-        self.std = [0.9325, 0.8775, 0.8860, 0.8869, 0.8857, 0.8418, 0.8354, 0.8491, 0.9061, 1.6072, 0.8848, 0.9232, 0.9018, 1.2913]
+        self.mean = [ -0.3074, -0.1277, -0.0625, 0.0439, 0.0803, 0.0644, 0.0802, 0.0823, 0.0516, 0.3338, 0.7819]
+        self.std = [ 0.8775, 0.8860, 0.8869, 0.8857, 0.8418, 0.8354, 0.8491, 0.8848, 0.9232, 0.9018, 1.2913]
         self.set = set
         self.img_ids = [i_id.strip() for i_id in open(list_path)]
         
