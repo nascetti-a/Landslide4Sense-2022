@@ -10,6 +10,7 @@ import torch.backends.cudnn as cudnn
 from utils.tools import *
 from dataset.landslide_dataset import LandslideDataSet
 import importlib
+import segmentation_models_pytorch as smp
 
 name_classes = ['Non-Landslide','Landslide']
 epsilon = 1e-14
