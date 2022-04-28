@@ -73,10 +73,19 @@ def main():
 
     cudnn.enabled = True
     cudnn.benchmark = True
-    
-    # Create network   
-    model_import = importName(args.model_module, args.model_name)
-    model = model_import(n_classes=args.num_classes)
+
+    # Create network
+    # model_import = importName(args.model_module, args.model_name)
+    # model = model_import(n_classes=args.num_classes)
+    # model.train()
+
+    model = smp.Unet(
+        encoder_name="resnet34",  # choose encoder, e.g. mobilenet_v2 or efficientnet-b7
+        encoder_weights="imagenet",  # use `imagenet` pre-trained weights for encoder initialization
+        in_channels=11,  # model input channels (1 for gray-scale images, 3 for RGB, etc.)
+        classes=2,  # model output channels (number of classes in your dataset)
+    )
+
     model.train()
     model = model.cuda()
 
