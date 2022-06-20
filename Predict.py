@@ -64,8 +64,12 @@ def main():
     cudnn.benchmark = True
     
     # Create network   
-    model = unet(n_classes=args.num_classes)
-   
+    model = smp.Unet(
+        encoder_name="mobilenet_v2",  # choose encoder, e.g. mobilenet_v2 or efficientnet-b7
+        encoder_weights="imagenet",  # use `imagenet` pre-trained weights for encoder initialization
+        in_channels=11,  # model input channels (1 for gray-scale images, 3 for RGB, etc.)
+        classes=2,  # model output channels (number of classes in your dataset)
+    )
     saved_state_dict = torch.load(args.restore_from)  
     model.load_state_dict(saved_state_dict)
 
